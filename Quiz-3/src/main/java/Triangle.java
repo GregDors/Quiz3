@@ -46,9 +46,11 @@ public class Triangle extends GeometricObject {
 				double x = (side1 + side2 + side3) / 2;
 				return Math.sqrt(x * (x - side1) * (x - side2) * (x - side3));
 			} else {
+				System.out.println("Not A valid Triangle");
 				return 0;
 			}
 		} 
+		System.out.println("Not A valid Triangle");
 		return 0;
 	}
 
