@@ -8,7 +8,6 @@ public class Triangle extends GeometricObject {
 
 	public Triangle() {
 		datecreated = new Date();
-		Triangle t = new Triangle(side1, side2, side3);
 	}
 
 	public Triangle(double side1, double side2, double side3) {
@@ -16,6 +15,7 @@ public class Triangle extends GeometricObject {
 		this.side2 = side2;
 		this.side3 = side3;
 		datecreated = new Date();
+
 	}
 
 	public double getSide1() {
@@ -41,16 +41,23 @@ public class Triangle extends GeometricObject {
 	 * @return
 	 */
 	public double getArea() {
-		double x = (side1 + side2 + side3)/2;
-		return Math.sqrt(x * (x - side1) * (x - side2) * (x - side3));
+		while(side1 > 0 && side2 > 0 && side3 > 0){
+			if ((side1 + side2) > side3 && (side1 + side3) > side2 && (side2 + side3) > side1) {
+				double x = (side1 + side2 + side3) / 2;
+				return Math.sqrt(x * (x - side1) * (x - side2) * (x - side3));
+			} else {
+				return 0;
+			}
+		} 
+		return 0;
 	}
- 
+
 	@Override
 	/**
 	 * getPerimeter - Finds the perimeter of a triangle you create
 	 * 
 	 * @return
-	 */ 
+	 */
 	public double getPerimeter() {
 
 		return (side1 + side2 + side3);
